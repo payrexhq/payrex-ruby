@@ -21,8 +21,10 @@ module Payrex
     def build_request(method:, params: {}, uri:)
       request_class = Net::HTTP.const_get(method.capitalize)
       request = request_class.new(uri)
+
       set_request_headers(request)
       set_request_body(request, params) if %i[post put].include?(method)
+
       request
     end
 

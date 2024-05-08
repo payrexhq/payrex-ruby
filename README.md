@@ -36,14 +36,6 @@ payrex_client.payment_intent.create(
   description: "Dino Treat",
   payment_methods: ["gcash"]
 )
-
-payrex_client.payment_intent.attach(
-  "pi_...",
-  {
-    payment_method_id: "pm_...",
-    return_url: "http://some-url.com"
-  }
-)
 ```
 
 ## Handle errors

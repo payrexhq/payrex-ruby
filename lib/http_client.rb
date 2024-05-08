@@ -12,7 +12,7 @@ module Payrex
 
       response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https") { |http| http.request(request) }
 
-      # TODO: Implement error handling
+      handle_error(response) if !successful?(response)
 
       Payrex::ApiResource.new(JSON.parse(response.body))
     end
@@ -29,13 +29,32 @@ module Payrex
       request
     end
 
+    def handle_error(response)
+      json_response_body = JSON.parse(response.body)
+
+      case response.code
+      when "400"
+        raise Payrex::Errors::RequestInvalidError.new(json_response_body)
+      when "401"
+        raise Payrex::Errors::AuthenticationInvalidError.new(json_response_body)
+      when "404"
+        raise Payrex::Errors::ResourceNotFoundError.new(json_response_body)
+      else
+        raise Payrex::Errors::BaseError.new(json_response_body)
+      end
+    end
+
     def set_request_headers(request)
       request.basic_auth(@api_key, "")
       request["Content-Type"] = "application/json"
     end
 
     def set_request_body(request, params)
-      request.body = { data: { attributes: params } }.to_json
+      request.body = params.to_json
+    end
+
+    def successful?(response)
+      response.code == "200"
     end
   end
 end

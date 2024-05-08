@@ -6,7 +6,9 @@ module Payrex
       end
 
       def request(method:, object:, path:, payload: {})
-        api_resource = Payrex::HttpClient.new(@client).request(
+        http_client = Payrex::HttpClient.new(api_key: @client.config.api_key, base_url: @client.config.api_base_url)
+
+        api_resource = http_client.request(
           method: method,
           params: payload,
           path: path

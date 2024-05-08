@@ -1,11 +1,12 @@
 module Payrex
   class HttpClient
-    def initialize(client)
-      @client = client
+    def initialize(api_key:, base_url:)
+      @api_key = api_key
+      @base_url = base_url
     end
 
     def request(method:, params: {}, path:)
-      uri = URI("#{@client.config.api_base_url}/#{path}")
+      uri = URI("#{@base_url}/#{path}")
 
       request = build_request(method: method, params: params, uri: uri)
 
@@ -29,7 +30,7 @@ module Payrex
     end
 
     def set_request_headers(request)
-      request.basic_auth(@client.config.api_key, "")
+      request.basic_auth(@api_key, "")
       request["Content-Type"] = "application/json"
     end
 

@@ -29,4 +29,33 @@ require "payrex-ruby"
 
 payrex_client = Payrex::Client.new("sk_test_...")
 payrex_client.payment_intent.retrieve("pi_...")
+
+payrex_client.payment_intent.create(
+  amount: 10000,
+  currency: "PHP",
+  description: "Dino Treat",
+  payment_methods: ["gcash"]
+)
+
+payrex_client.payment_intent.attach(
+  "pi_...",
+  {
+    payment_method_id: "pm_...",
+    return_url: "http://some-url.com"
+  }
+)
+```
+
+## Handle errors
+
+```ruby
+begin
+  payrex_client = Payrex::Client.new("sk_test_...")
+  payrex_client.payment_intent.retrieve("pi_...")
+rescue Payrex::Errors::BaseError => e
+  # Handle error
+  puts e.errors.first.code
+  puts e.errors.first.detail
+  puts e.errors.first.parameter
+end
 ```

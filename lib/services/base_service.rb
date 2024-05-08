@@ -5,7 +5,7 @@ module Payrex
         @client = client
       end
 
-      def request(method:, object:, path:, payload: {})
+      def request(is_list: false, method:, object:, path:, payload: {})
         http_client = Payrex::HttpClient.new(api_key: @client.config.api_key, base_url: @client.config.api_base_url)
 
         api_resource = http_client.request(
@@ -14,7 +14,13 @@ module Payrex
           path: path
         )
 
-        object.new(api_resource)
+        if is_list
+          data = api_resource.data["data"].map { |data| object.new(Payrex::ApiResource.new(data)) }
+  
+          Payrex::Entities::Listing.new(data: data, has_more: api_resource.data["has_more"])
+        else
+          object.new(api_resource)
+        end
       end
     end
   end

@@ -6,7 +6,6 @@ module Payrex
         service_name = name.to_s.split("_").map(&:capitalize).join
         service_class = Payrex::Services.const_get("#{service_name}Service")
 
-        # TODO: Implement error handling
         raise ArgumentError, "Unknown service: #{name}" if !service_class.is_a?(Class)
 
         service_class

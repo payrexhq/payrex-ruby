@@ -51,3 +51,22 @@ rescue Payrex::Errors::BaseError => e
   puts e.errors.first.parameter
 end
 ```
+
+## Verify webhook signature
+
+```ruby
+begin
+  payload = "{\"id\":\"evt_...\",\"resource\":\"event\",\"type\":\"payment_intent.succeeded\",\"data\":{..."
+  signature_header = "t=1715236958,te=,li=..."
+  webhook_secret_key = "whsk_..."
+
+  payrex_client.webhook.parse_event(
+    payload: payload,
+    signature_header: signature_header,
+    webhook_secret_key: webhook_secret_key
+  )
+rescue Payrex::Errors::SignatureVerificationError => e
+  # Handle invalid signature
+  e.errors.first
+end
+```

@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.1] - 2024-05-24
+
+- Update error handling.
+
 ## [0.2.0] - 2024-05-09
 
 - Add webhook parse_event method to verify webhook signature.

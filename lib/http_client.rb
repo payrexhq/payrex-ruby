@@ -12,7 +12,9 @@ module Payrex
 
       response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https") { |http| http.request(request) }
 
-      handle_error(response) if !successful?(response)
+      raise StandardError.new(response.to_s) if response.body.nil?
+
+      handle_error(response) if failed?(response)
 
       Payrex::ApiResource.new(JSON.parse(response.body))
     end
@@ -30,7 +32,11 @@ module Payrex
     end
 
     def handle_error(response)
-      json_response_body = JSON.parse(response.body)
+      begin
+        json_response_body = JSON.parse(response.body)
+      rescue JSON::ParserError
+        raise StandardError.new(response.body)
+      end
 
       case response.code
       when "400"
@@ -53,8 +59,8 @@ module Payrex
       request.body = params.to_json
     end
 
-    def successful?(response)
-      response.code == "200"
+    def failed?(response)
+      response.code < "200" || response.code >= "400"
     end
   end
 end

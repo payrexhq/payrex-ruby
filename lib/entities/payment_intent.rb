@@ -4,7 +4,6 @@ module Payrex
       attr_reader :id,
         :resource,
         :amount,
-        :capture_type,
         :client_secret,
         :currency,
         :description,
@@ -25,7 +24,6 @@ module Payrex
         @id = api_resource.data["id"]
         @resource = api_resource.data["resource"]
         @amount = api_resource.data["amount"]
-        @capture_type = api_resource.data["capture_type"]
         @client_secret = api_resource.data["client_secret"]
         @currency = api_resource.data["currency"]
         @description = api_resource.data["description"]

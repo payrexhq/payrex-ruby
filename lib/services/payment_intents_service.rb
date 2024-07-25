@@ -1,6 +1,6 @@
 module Payrex
   module Services
-    class PaymentIntentService < BaseService
+    class PaymentIntentsService < BaseService
       PATH = "payment_intents"
 
       def capture(id, payload)

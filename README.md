@@ -28,9 +28,9 @@ Simple usage looks like:
 require "payrex-ruby"
 
 payrex_client = Payrex::Client.new("sk_test_...")
-payrex_client.payment_intent.retrieve("pi_...")
+payrex_client.payment_intents.retrieve("pi_...")
 
-payrex_client.payment_intent.create(
+payrex_client.payment_intents.create(
   amount: 10000,
   currency: "PHP",
   description: "Dino Treat",
@@ -43,7 +43,7 @@ payrex_client.payment_intent.create(
 ```ruby
 begin
   payrex_client = Payrex::Client.new("sk_test_...")
-  payrex_client.payment_intent.retrieve("pi_...")
+  payrex_client.payment_intents.retrieve("pi_...")
 rescue Payrex::Errors::BaseError => e
   # Handle error
   puts e.errors.first.code
@@ -60,7 +60,7 @@ begin
   signature_header = "t=1715236958,te=,li=..."
   webhook_secret_key = "whsk_..."
 
-  payrex_client.webhook.parse_event(
+  payrex_client.webhooks.parse_event(
     payload: payload,
     signature_header: signature_header,
     webhook_secret_key: webhook_secret_key

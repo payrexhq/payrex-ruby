@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "payrex-ruby"
-  s.version     = "0.2.3"
+  s.version     = "0.2.4"
   s.summary     = "PayRex Ruby"
   s.description = "PayRex Ruby Library"
   s.author      = "PayRex"
@@ -27,12 +27,11 @@ Gem::Specification.new do |s|
     "lib/errors/signature_invalid_error.rb",
     "lib/errors/value_unexpected_error.rb",
     "lib/services/base_service.rb",
-    "lib/services/checkout_session_service.rb",
-    "lib/services/merchant_service.rb",
-    "lib/services/payment_intent_service.rb",
-    "lib/services/payment_method_service.rb",
-    "lib/services/refund_service.rb",
-    "lib/services/webhook_service.rb",
+    "lib/services/checkout_sessions_service.rb",
+    "lib/services/payment_intents_service.rb",
+    "lib/services/payment_methods_service.rb",
+    "lib/services/refunds_service.rb",
+    "lib/services/webhooks_service.rb",
     "lib/services/service_factory.rb"
   ]
   s.homepage    = "https://www.payrexhq.com/"

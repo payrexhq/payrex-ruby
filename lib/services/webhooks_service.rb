@@ -1,6 +1,6 @@
 module Payrex
   module Services
-    class WebhookService < BaseService
+    class WebhooksService < BaseService
       PATH = "webhooks"
 
       def parse_event(payload:, signature_header:, webhook_secret_key:)

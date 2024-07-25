@@ -5,7 +5,7 @@ module Payrex
       @base_url = base_url
     end
 
-    def request(method:, params: {}, path:)
+    def request(method:, path:, params: {})
       uri = URI("#{@base_url}/#{path}")
 
       request = build_request(method: method, params: params, uri: uri)
@@ -21,12 +21,15 @@ module Payrex
 
     private
 
-    def build_request(method:, params: {}, uri:)
+    def build_request(method:, uri:, params: {})
       request_class = Net::HTTP.const_get(method.capitalize)
       request = request_class.new(uri)
 
-      set_request_headers(request)
-      set_request_body(request, params) if %i[post put].include?(method)
+      request = set_request_headers(request)
+
+      if %i[post put].include?(method)
+        request = set_request_body(request, params)
+      end
 
       request
     end
@@ -52,11 +55,15 @@ module Payrex
 
     def set_request_headers(request)
       request.basic_auth(@api_key, "")
-      request["Content-Type"] = "application/json"
+      request.content_type = "application/x-www-form-urlencoded"
+
+      request
     end
 
     def set_request_body(request, params)
-      request.body = params.to_json
+      request.body = ::Payrex::Parameter.encode(params).gsub(/%5B[\d+]%5D/, "%5B%5D")
+
+      request
     end
 
     def failed?(response)

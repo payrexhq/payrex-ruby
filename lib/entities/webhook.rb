@@ -2,19 +2,17 @@ module Payrex
   module Entities
     class Webhook
       attr_reader :id,
-                  :resource,
-                  :secret_key,
-                  :status,
-                  :description,
-                  :livemode,
-                  :url,
-                  :events,
-                  :created_at,
-                  :updated_at
+        :secret_key,
+        :status,
+        :description,
+        :livemode,
+        :url,
+        :events,
+        :created_at,
+        :updated_at
 
       def initialize(api_resource)
         @id = api_resource.data["id"]
-        @resource = api_resource.data["resource"]
         @secret_key = api_resource.data["secret_key"]
         @status = api_resource.data["status"]
         @description = api_resource.data["description"]

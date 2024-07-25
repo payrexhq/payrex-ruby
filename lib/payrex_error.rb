@@ -1,8 +1,8 @@
 module Payrex
   class PayrexError
     attr_reader :code,
-                :detail,
-                :parameter
+      :detail,
+      :parameter
 
     def initialize(error)
       @code = error["code"]

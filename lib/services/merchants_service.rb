@@ -1,12 +1,12 @@
 module Payrex
   module Services
-    class PaymentMethodService < BaseService
-      PATH = "payment_methods"
+    class MerchantsService < BaseService
+      PATH = "merchants"
 
       def create(payload)
         request(
           method: :post,
-          object: Payrex::Entities::PaymentMethod,
+          object: Payrex::Entities::Merchant,
           path: PATH,
           payload: payload
         )

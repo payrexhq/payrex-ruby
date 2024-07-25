@@ -2,22 +2,20 @@ module Payrex
   module Entities
     class Refund
       attr_reader :id,
-                  :resource,
-                  :amount,
-                  :currency,
-                  :livemode,
-                  :status,
-                  :description,
-                  :reason,
-                  :remarks,
-                  :payment_id,
-                  :metadata,
-                  :created_at,
-                  :updated_at
+        :amount,
+        :currency,
+        :livemode,
+        :status,
+        :description,
+        :reason,
+        :remarks,
+        :payment_id,
+        :metadata,
+        :created_at,
+        :updated_at
 
       def initialize(api_resource)
         @id = api_resource.data["id"]
-        @resource = api_resource.data["resource"]
         @amount = api_resource.data["amount"]
         @currency = api_resource.data["currency"]
         @livemode = api_resource.data["livemode"]

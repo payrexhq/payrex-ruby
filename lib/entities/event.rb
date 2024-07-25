@@ -2,12 +2,12 @@ module Payrex
   module Entities
     class Event
       attr_reader :id,
-                  :data,
-                  :type,
-                  :pending_webhooks,
-                  :previous_attributes,
-                  :created_at,
-                  :updated_at
+        :data,
+        :type,
+        :pending_webhooks,
+        :previous_attributes,
+        :created_at,
+        :updated_at
 
       def initialize(api_resource)
         @id = api_resource.data["id"]

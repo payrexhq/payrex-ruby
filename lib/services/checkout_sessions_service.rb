@@ -1,6 +1,6 @@
 module Payrex
   module Services
-    class CheckoutSessionService < BaseService
+    class CheckoutSessionsService < BaseService
       PATH = "checkout_sessions"
 
       def create(payload)

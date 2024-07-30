@@ -3,6 +3,8 @@ module Payrex
     class PaymentIntent
       attr_reader :id,
         :amount,
+        :amount_received,
+        :amount_capturable,
         :client_secret,
         :currency,
         :description,
@@ -22,6 +24,8 @@ module Payrex
       def initialize(api_resource)
         @id = api_resource.data["id"]
         @amount = api_resource.data["amount"]
+        @amount_received = api_resource.data["amount_received"]
+        @amount_capturable = api_resource.data["amount_capturable"]
         @client_secret = api_resource.data["client_secret"]
         @currency = api_resource.data["currency"]
         @description = api_resource.data["description"]

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "payrex-ruby"
-  s.version     = "0.2.4"
+  s.version     = "0.2.5"
   s.summary     = "PayRex Ruby"
   s.description = "PayRex Ruby Library"
   s.author      = "PayRex"

@@ -47,7 +47,7 @@ module Payrex
         )
       end
 
-      def list(payload)
+      def list(payload = {})
         request(
           is_list: true,
           method: :get,
@@ -87,7 +87,7 @@ module Payrex
       def delete(id)
         request(
           method: :delete,
-          object: Payrex::Entities::Webhook,
+          object: Payrex::Entities::Deleted,
           path: "#{PATH}/#{id}",
           payload: {}
         )

@@ -12,7 +12,7 @@ module Payrex
         )
       end
 
-      def list(payload)
+      def list(payload = {})
         request(
           is_list: true,
           method: :get,

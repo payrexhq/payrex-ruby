@@ -18,6 +18,8 @@ module Payrex
           data = api_resource.data["data"].map { |data| object.new(Payrex::ApiResource.new(data)) }
 
           Payrex::Entities::Listing.new(data: data, has_more: api_resource.data["has_more"])
+        elsif object.nil?
+          nil
         else
           object.new(api_resource)
         end

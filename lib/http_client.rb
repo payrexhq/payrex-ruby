@@ -12,7 +12,7 @@ module Payrex
 
       response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https") { |http| http.request(request) }
 
-      raise StandardError.new(response.to_s) if response.body.nil?
+      return nil if response.body.nil?
 
       handle_error(response) if failed?(response)
 

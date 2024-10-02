@@ -49,30 +49,35 @@ module Payrex
         )
       end
 
-      def finalize(id, payload)
+      def finalize(id)
         request(
           method: :post,
           object: Payrex::Entities::BillingStatement,
-          path: "#{PATH}/#{id}/finalize",
-          payload: payload
+          path: "#{PATH}/#{id}/finalize"
         )
       end
 
-      def void(id, payload)
+      def send(id)
         request(
           method: :post,
-          object: Payrex::Entities::BillingStatement,
-          path: "#{PATH}/#{id}/void",
-          payload: payload
+          object: nil,
+          path: "#{PATH}/#{id}/send"
         )
       end
 
-      def mark_uncollectible(id, payload)
+      def void(id)
         request(
           method: :post,
           object: Payrex::Entities::BillingStatement,
-          path: "#{PATH}/#{id}/mark_uncollectible",
-          payload: payload
+          path: "#{PATH}/#{id}/void"
+        )
+      end
+
+      def mark_uncollectible(id)
+        request(
+          method: :post,
+          object: Payrex::Entities::BillingStatement,
+          path: "#{PATH}/#{id}/mark_uncollectible"
         )
       end
     end

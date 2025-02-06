@@ -14,6 +14,7 @@ module Payrex
         :livemode,
         :metadata,
         :payment_intent,
+        :statement_descriptor,
         :status,
         :payment_settings,
         :customer,
@@ -36,6 +37,7 @@ module Payrex
         @livemode = data["livemode"]
         @metadata = data["metadata"]
         @payment_intent = data["payment_intent"]
+        @statement_descriptor = data["statement_descriptor"]
         @status = data["status"]
         @payment_settings = data["payment_settings"]
         @customer = data["customer"]

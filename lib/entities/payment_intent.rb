@@ -14,6 +14,7 @@ module Payrex
         :payment_method_id,
         :payment_methods,
         :payment_method_options,
+        :statement_descriptor,
         :status,
         :next_action,
         :return_url,
@@ -35,6 +36,7 @@ module Payrex
         @payment_method_id = api_resource.data["payment_method_id"]
         @payment_methods = api_resource.data["payment_methods"]
         @payment_method_options = api_resource.data["payment_method_options"]
+        @statement_descriptor = api_resource.data["statement_descriptor"]
         @status = api_resource.data["status"]
         @next_action = api_resource.data["next_action"]
         @return_url = api_resource.data["return_url"]

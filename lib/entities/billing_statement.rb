@@ -37,7 +37,7 @@ module Payrex
         @livemode = data["livemode"]
         @metadata = data["metadata"]
         @payment_intent = data["payment_intent"]
-        @statement_descriptor = api_resource.data["statement_descriptor"]
+        @statement_descriptor = data["statement_descriptor"]
         @status = data["status"]
         @payment_settings = data["payment_settings"]
         @customer = data["customer"]

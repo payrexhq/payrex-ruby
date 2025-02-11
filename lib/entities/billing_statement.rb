@@ -3,6 +3,7 @@ module Payrex
     class BillingStatement
       attr_reader :id,
         :amount,
+        :billing_details_collection,
         :currency,
         :customer_id,
         :description,
@@ -26,6 +27,7 @@ module Payrex
 
         @id = data["id"]
         @amount = data["amount"]
+        @billing_details_collection = data["billing_details_collection"]
         @currency = data["currency"]
         @customer_id = data["customer_id"]
         @description = data["description"]

@@ -2,6 +2,7 @@ module Payrex
   module Entities
     class CheckoutSession
       attr_reader :id,
+        :billing_details_collection,
         :customer_reference_id,
         :client_secret,
         :status,
@@ -24,6 +25,7 @@ module Payrex
         data = api_resource.data
 
         @id = data["id"]
+        @billing_details_collection = data["billing_details_collection"]
         @customer_reference_id = data["customer_reference_id"]
         @client_secret = data["client_secret"]
         @status = data["status"]

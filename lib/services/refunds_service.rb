@@ -11,6 +11,15 @@ module Payrex
           payload: payload
         )
       end
+
+      def update(id, payload)
+        request(
+          method: :put,
+          object: Payrex::Entities::Refund,
+          path: "#{PATH}/#{id}",
+          payload: payload
+        )
+      end
     end
   end
 end

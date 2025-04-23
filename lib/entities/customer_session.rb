@@ -8,6 +8,8 @@ module Payrex
         :livemode,
         :payment_intent_id,
         :components,
+        :expired,
+        :expired_at,
         :created_at,
         :updated_at
 
@@ -21,6 +23,8 @@ module Payrex
         @livemode = data["livemode"]
         @payment_intent_id = data["payment_intent_id"]
         @components = data["components"]
+        @expired = data["expired"]
+        @expired_at = data["expired_at"]
         @created_at = data["created_at"]
         @updated_at = data["updated_at"]
       end

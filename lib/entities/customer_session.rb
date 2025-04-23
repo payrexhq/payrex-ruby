@@ -4,9 +4,7 @@ module Payrex
       attr_reader :id,
         :customer_id,
         :client_secret,
-        :merchant_id,
         :livemode,
-        :payment_intent_id,
         :components,
         :expired,
         :expired_at,
@@ -19,9 +17,7 @@ module Payrex
         @id = data["id"]
         @customer_id = data["customer_id"]
         @client_secret = data["client_secret"]
-        @merchant_id = data["merchant_id"]
         @livemode = data["livemode"]
-        @payment_intent_id = data["payment_intent_id"]
         @components = data["components"]
         @expired = data["expired"]
         @expired_at = data["expired_at"]

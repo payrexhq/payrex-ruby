@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.2.1] - 2025-04-23
+## [1.2.2] - 2025-04-23
 
 - Add update support for refunds.
 

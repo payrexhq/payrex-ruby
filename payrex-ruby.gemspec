@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "payrex-ruby"
-  s.version     = "1.2.0"
+  s.version     = "1.2.1"
   s.summary     = "PayRex Ruby"
   s.description = "PayRex Ruby Library"
   s.author      = "PayRex"
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "lib/errors/resource_not_found_error.rb",
     "lib/errors/signature_invalid_error.rb",
     "lib/errors/value_unexpected_error.rb",
+    "lib/helpers/parameter.rb",
     "lib/services/base_service.rb",
     "lib/services/checkout_sessions_service.rb",
     "lib/services/payment_intents_service.rb",

@@ -1,3 +1,5 @@
 payrex-ruby-*.gem
 
 test.rb
+
+.DS_Store

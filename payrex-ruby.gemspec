@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "payrex-ruby"
-  s.version     = "1.4.0"
+  s.version     = "1.5.0"
   s.summary     = "PayRex Ruby"
   s.description = "PayRex Ruby Library"
   s.author      = "PayRex"
@@ -22,6 +22,8 @@ Gem::Specification.new do |s|
     "lib/entities/billing_statement_line_item.rb",
     "lib/entities/payment_intent.rb",
     "lib/entities/payment.rb",
+    "lib/entities/payout.rb",
+    "lib/entities/payout_transaction.rb",
     "lib/entities/refund.rb",
     "lib/entities/webhook.rb",
     "lib/errors/base_error.rb",
@@ -36,6 +38,7 @@ Gem::Specification.new do |s|
     "lib/services/customer_sessions_service.rb",
     "lib/services/payment_intents_service.rb",
     "lib/services/payments_service.rb",
+    "lib/services/payouts_service.rb",
     "lib/services/customers_service.rb",
     "lib/services/billing_statements_service.rb",
     "lib/services/billing_statement_line_items_service.rb",
@@ -43,6 +46,6 @@ Gem::Specification.new do |s|
     "lib/services/webhooks_service.rb",
     "lib/services/service_factory.rb"
   ]
-  s.homepage    = "https://www.payrexhq.com/"
+  s.homepage    = "https://www.payrexhq.com"
   s.license     = "MIT"
 end

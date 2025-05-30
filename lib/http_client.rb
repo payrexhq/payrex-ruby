@@ -8,7 +8,11 @@ module Payrex
     def request(method:, path:, params: {})
       uri = URI("#{@base_url}/#{path}")
 
-      request = build_request(method: method, params: params, uri: uri)
+      request = build_request(
+        method: method,
+        params: params,
+        uri: uri
+      )
 
       response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == "https") { |http| http.request(request) }
 
@@ -23,6 +27,11 @@ module Payrex
 
     def build_request(method:, uri:, params: {})
       request_class = Net::HTTP.const_get(method.capitalize)
+
+      if %i[get delete].include?(method)
+        uri = set_query_params(uri, params)
+      end
+
       request = request_class.new(uri)
 
       request = set_request_headers(request)
@@ -64,6 +73,14 @@ module Payrex
       request.body = ::Payrex::Parameter.encode(params).gsub(/%5B[\d+]%5D/, "%5B%5D")
 
       request
+    end
+
+    def set_query_params(uri, params)
+      return uri if params.nil? || params.empty?
+
+      uri.query = URI.encode_www_form(params)
+
+      uri
     end
 
     def failed?(response)

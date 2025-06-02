@@ -3,7 +3,7 @@ module Payrex
     class PayoutTransaction
       attr_reader :id,
         :amount,
-        :payout_id,
+        :net_amount,
         :transaction_type,
         :transaction_id,
         :created_at,
@@ -12,7 +12,7 @@ module Payrex
       def initialize(api_resource)
         @id = api_resource.data["id"]
         @amount = api_resource.data["amount"]
-        @payout_id = api_resource.data["payout_id"]
+        @net_amount = api_resource.data["net_amount"]
         @transaction_type = api_resource.data["transaction_type"]
         @transaction_id = api_resource.data["transaction_id"]
         @created_at = api_resource.data["created_at"]

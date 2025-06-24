@@ -9,6 +9,7 @@ module Payrex
         :description,
         :due_at,
         :finalized_at,
+        :billing_statement_merchant_name,
         :billing_statement_number,
         :billing_statement_url,
         :line_items,
@@ -33,6 +34,7 @@ module Payrex
         @description = data["description"]
         @due_at = data["due_at"]
         @finalized_at = data["finalized_at"]
+        @billing_statement_merchant_name = data["billing_statement_merchant_name"]
         @billing_statement_number = data["billing_statement_number"]
         @billing_statement_url = data["billing_statement_url"]
         @line_items = data["line_items"]

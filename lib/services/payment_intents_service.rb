@@ -3,6 +3,14 @@ module Payrex
     class PaymentIntentsService < BaseService
       PATH = "payment_intents"
 
+      def cancel(id)
+        request(
+          method: :post,
+          object: Payrex::Entities::PaymentIntent,
+          path: "#{PATH}/#{id}/cancel"
+        )
+      end
+
       def capture(id, payload)
         request(
           method: :post,

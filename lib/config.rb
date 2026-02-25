@@ -3,7 +3,7 @@ module Payrex
     attr_reader :api_base_url,
       :api_key
 
-    API_BASE_URL = "https://api.payrexhq.com"
+    API_BASE_URL = "http://api.localhost"
 
     def initialize(api_key)
       @api_base_url = API_BASE_URL

@@ -35,6 +35,7 @@ module Payrex
         @customer = api_resource.data["customer"]
         @payment_method = api_resource.data["payment_method"]
         @refunded = api_resource.data["refunded"]
+        @page_session = api_resource.data["page_session"]
         @created_at = api_resource.data["created_at"]
         @updated_at = api_resource.data["updated_at"]
       end

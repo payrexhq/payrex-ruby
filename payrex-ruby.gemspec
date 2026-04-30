@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
   s.name        = "payrex-ruby"
-  s.version     = "1.7.3"
+  s.version     = "1.7.4"
   s.summary     = "PayRex Ruby"
   s.description = "PayRex Ruby Library"
   s.author      = "PayRex"
-  s.email       = "support@payrexhq.com"
+  s.email       = "support@payrex.com"
   s.files       = [
     "lib/api_resource.rb",
     "lib/client.rb",

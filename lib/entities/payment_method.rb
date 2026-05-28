@@ -1,0 +1,27 @@
+module Payrex
+  module Entities
+    class PaymentMethod
+      attr_reader :id,
+        :type,
+        :details,
+        :billing_details,
+        :livemode,
+        :metadata,
+        :allow_redisplay,
+        :created_at,
+        :updated_at
+
+      def initialize(api_resource)
+        @id = api_resource.data["id"]
+        @type = api_resource.data["type"]
+        @details = api_resource.data["details"]
+        @billing_details = api_resource.data["billing_details"]
+        @livemode = api_resource.data["livemode"]
+        @metadata = api_resource.data["metadata"]
+        @allow_redisplay = api_resource.data["allow_redisplay"]
+        @created_at = api_resource.data["created_at"]
+        @updated_at = api_resource.data["updated_at"]
+      end
+    end
+  end
+end

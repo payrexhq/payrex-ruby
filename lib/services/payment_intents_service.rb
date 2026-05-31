@@ -20,6 +20,15 @@ module Payrex
         )
       end
 
+      def attach(id, payload)
+        request(
+          method: :post,
+          object: Payrex::Entities::PaymentIntent,
+          path: "#{PATH}/#{id}/attach",
+          payload: payload
+        )
+      end
+
       def update(id, payload)
         request(
           method: :put,

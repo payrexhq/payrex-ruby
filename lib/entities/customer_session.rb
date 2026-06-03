@@ -2,7 +2,7 @@ module Payrex
   module Entities
     class CustomerSession
       attr_reader :id,
-        :customer_id,
+        :customer,
         :client_secret,
         :livemode,
         :components,
@@ -15,7 +15,7 @@ module Payrex
         data = api_resource.data
 
         @id = data["id"]
-        @customer_id = data["customer_id"]
+        @customer = data["customer"]
         @client_secret = data["client_secret"]
         @livemode = data["livemode"]
         @components = data["components"]
